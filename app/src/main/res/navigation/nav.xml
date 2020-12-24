@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@+id/mHomeFragment">
 
 
     <fragment
         android:id="@+id/mHomeFragment"
-        android:name="com.hxz.learn.fragment.HomeFragment"
-        android:label="首页" />
+        android:name="com.hxz.learn.base.HomeFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_home" />
 
-
-    <fragment
-        android:id="@+id/mMineFragment"
-        android:name="com.hxz.learn.fragment.MineFragment"
-        android:label="我的" />
 
 
 </navigation>

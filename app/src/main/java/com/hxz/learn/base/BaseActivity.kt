@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.hxz.learn.R
+import com.hxz.learn.utils.ColorUtils
+import com.hxz.learn.utils.StatusUtils
 
 /**
  * @Author:andy
@@ -33,8 +36,9 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-    //设置状态栏背景  此时增加open是子类可以继承,或者重写,因为kotlin的类都是不能继承重写的类似于final
-    open fun setStatusBg() {}
+    open fun setStatusBg() {
+        StatusUtils.setUseStatusBarColor(this, ColorUtils.parseColor(R.color.app_color))
+    }
 
     //获取layout布局
     abstract fun getLayoutId(): Int?

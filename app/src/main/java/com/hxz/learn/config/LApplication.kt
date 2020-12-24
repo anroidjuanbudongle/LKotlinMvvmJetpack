@@ -1,5 +1,6 @@
 package com.hxz.learn.config
 
+import android.content.Context
 import androidx.multidex.MultiDexApplication
 
 /**
@@ -11,8 +12,16 @@ class LApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        baseApplication = this
     }
 
+    companion object{
+        private lateinit var baseApplication: LApplication
+
+        fun getContext(): Context {
+            return baseApplication
+        }
+    }
 
 
 

@@ -38,31 +38,24 @@ abstract class BaseFragment : Fragment() {
 
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        getLayoutId()?.let {
-            setStatusColor()
-            setSystemInvadeBlack()
-            //获取ViewDataBinding
-            val binding: ViewDataBinding = DataBindingUtil.inflate(inflater, it, container, false)
-            //将ViewDataBinding生命周期与Fragment绑定
-            binding.lifecycleOwner = viewLifecycleOwner
-            dataBindingConfig = getDataBindingConfig()
-            dataBindingConfig?.apply {
-                val bindingParams = bindingParams
-                //TODO 将bindingParams逐个加入到ViewDataBinding中的Variable
-                // 这一步很重要,否则xml中拿不到variable中内容
-                for (i in 0 until bindingParams.size()) {
-                    binding.setVariable(bindingParams.keyAt(i), bindingParams.valueAt(i))
-                }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        setStatusColor()
+        setSystemInvadeBlack()
+        //获取ViewDataBinding
+        val binding: ViewDataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
+        //将ViewDataBinding生命周期与Fragment绑定
+        binding.lifecycleOwner = viewLifecycleOwner
+        dataBindingConfig = getDataBindingConfig()
+        dataBindingConfig?.apply {
+            val bindingParams = bindingParams
+            //TODO 将bindingParams逐个加入到ViewDataBinding中的Variable
+            // 这一步很重要,否则xml中拿不到variable中内容
+            for (i in 0 until bindingParams.size()) {
+                binding.setVariable(bindingParams.keyAt(i), bindingParams.valueAt(i))
             }
-            mBinding = binding
-            return binding.root
         }
-        return super.onCreateView(inflater, container, savedInstanceState)
+        mBinding = binding
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -141,7 +134,7 @@ abstract class BaseFragment : Fragment() {
     /**
      * 初始化View以及事件
      */
-    open fun initView(){
+    open fun initView() {
 
     }
 
@@ -161,7 +154,7 @@ abstract class BaseFragment : Fragment() {
     /**
      * 获取layout布局
      */
-    abstract fun getLayoutId(): Int?
+    abstract fun getLayoutId(): Int
 
     /**
      * 获取dataBinding配置项

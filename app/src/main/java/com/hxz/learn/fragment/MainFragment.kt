@@ -1,16 +1,15 @@
 package com.hxz.learn.fragment
 
-import androidx.fragment.app.Fragment
 import com.hxz.learn.R
 import com.hxz.learn.base.LazyFragment
 import com.hxz.learn.config.DataBindingConfig
 
 /**
  * @Author:andy
- * @CreateDate:2020/12/21 13:33
- * @Description:我的
+ * @CreateDate:2020/12/24 18:46
+ * @Description:首页
  */
-class MineFragment : LazyFragment(){
+class MainFragment : LazyFragment() {
     override fun lazyInit() {
 
     }
