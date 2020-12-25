@@ -18,10 +18,6 @@ class MvvmMainActivity : AppCompatActivity() {
         mData.viewmodel = ViewModel("韩湘子", "15")
 
 
-
-
-
-
         val observer: Observer<String> = object : Observer<String> {
             override fun onSubscribe(d: Disposable) {
                 Logger.d("onSubscribe")

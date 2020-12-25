@@ -10,6 +10,7 @@ class MainActivity : BaseActivity() {
 
     override fun init(bundle: Bundle?) {
 
+
     }
 
 }
